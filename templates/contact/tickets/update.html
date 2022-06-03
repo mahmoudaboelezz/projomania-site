@@ -1,0 +1,42 @@
+{% extends 'projomania_pages/projomania_base.html' %}
+{% load static %}
+{% block page_title %}
+    Contact Us
+{% endblock %}
+{% block content %}
+
+
+
+<div class="container">
+<br>
+<div class="row"><a href="{% url 'ticketlist' %}" class="btn btn-success">My-Tickets</a></div>
+
+<div class="row">
+<div class="col-sm-10">
+<div class="alert alert-info" role="alert">
+  You are editing "<a href="{{ ticket.get_absolute_url }}">{{ ticket.issueTitle }}</a>"
+</div>
+</div>
+<div class="col-sm"><a class='btn btn-info' href="{{ ticket.get_absolute_url }}">Cancel Editing</a></div>
+</div>
+<div class="row">
+{% if message %}
+<p>{{message}} dasdsdas</p>
+{% endif %}
+<form action=""method="POST">
+{% csrf_token %}
+{{ form.status }}
+{% comment %} {{ form }} {% endcomment %}
+<br>
+<label for="id_comment">case update</label>
+
+ {{ form.comment }} 
+<br>
+<button type="submit">save</button>
+
+</form>
+</div>
+
+</div>
+
+{% endblock content %}

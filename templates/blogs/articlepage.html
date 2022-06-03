@@ -1,0 +1,77 @@
+{% extends 'projomania_pages/projomania_base.html' %}
+{% load static %}
+{% block page_title %}
+    Contact Us
+{% endblock %}
+
+{% block style %}
+<link href="{% static 'css/blogs.css' %}" rel='stylesheet' type='text/css'/>
+<link href="{% static 'css/shared.css' %}" rel='stylesheet' type='text/css'/>
+{% endblock style %}
+
+{% block navbar %}
+<div class="container-fluid ahead" >
+    <div id='blogsbanner' style="background-image:url('{% static '' %}');"></div>
+    <div class="row" id='blogs'>
+        <h1 class="center"><a href="{% url 'articles' %}">ProjoMania Blogs</a> </h1>
+    </div>
+    
+</div>
+{% include 'parts\navbarblogs.html' %}
+<div class="container-xxl filter-container">
+    <div  id='filter'>
+        <div class="container filter">
+            <div class="row" >
+            <div class="col-lg-6">
+                <div id='back' class='center' ><h3 > <a   href=".." >blogs /</a> {{articlepage.title}}</h3></div>
+
+            </div>
+
+<form class='col-sm-12 col-lg-6 center' action="{% url 'articles' %}" method="post">
+    {% csrf_token %}
+     <input type="text" name="search" id="search" placeholder='search by name'> 
+    <input id='search-button' class="btn btn-outline-info" type="submit" value="search">
+</form>
+
+            
+        </div>
+    </div>
+    </div>  
+</div>
+{% endblock %}
+
+{% block content %}
+<br>
+
+<div class="center container">
+<div class="row">
+    <span><p>Published : {{ articlepage.added }} By: <a href="{{ articlepage.author.url  }}"> {{ articlepage.author  }}©</a></p></span>
+    
+    {% comment %} <span><p></p></span> {% endcomment %}
+    <p class='col-sm-12 col-lg-12  companydetail' style='width: 500px;'>{{articlepage.title}}</p> 
+<img class='col-sm-12 col-lg-8 center companyimg '  src="{{articlepage.thumbnail.url}}" alt=""  />
+ 
+</div>
+</div>
+<div class='container compantcontent'>
+
+<br>
+
+<h6>{{ articlepage.blog }}</h6> 
+<p>Last Update : {{articlepage.updated}}</p>
+<div class="container">
+<br>
+<div class="row">
+{% comment %} <h6 class="col-3">Country : {{ articlepage.blog }}</h6> {% endcomment %}
+<h6 class="col-6">{{ company.category }} </h6>
+
+</div>
+
+
+</div>
+
+    
+</div>
+
+
+{% endblock content %}

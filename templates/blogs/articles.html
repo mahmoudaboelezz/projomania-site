@@ -1,0 +1,125 @@
+{% extends 'projomania_pages/projomania_base.html' %}
+{% load static %}
+
+{% block page_title %}
+Blogs
+{% endblock %}
+
+{% block style %}
+<link href="{% static 'css/blogs.css' %}" rel='stylesheet' type='text/css'/>
+<link href="{% static 'css/shared.css' %}" rel='stylesheet' type='text/css'/>
+{% endblock style %}
+
+
+
+{% block navbar %}
+<div class="container-fluid ahead" >
+    <div id='blogsbanner' style="background-image:url('{% static '' %}');"></div>
+    <div class="row" id='blogs'>
+        <h1 class="center"><a href="{% url 'articles' %}">ProjoMania Blogs</a> </h1>
+    </div>
+    
+</div>
+{% include 'parts\navbarblogs.html' %}
+<div class="container-xxl filter-container">
+    <div  id='filter'>
+        <div class="container filter">
+            <div class="row" >
+            
+                <form class='col-sm-12 col-lg-6 center'  id='seachbyselect' method="GET">
+                    {% comment %} doing in js {% endcomment %}
+                <span >{{ filters.form.category.label_tag }} {{ filters.form.category }} </span>
+                <span >{{ filters.form.author.label_tag }}  {{ filters.form.author }}</span>
+                <span >
+                    {% comment %} <input class="btn btn-outline-info" type="submit" value="Filter"> {% endcomment %}
+                    <input class="btn btn-outline-info" type="reset" value="Reset" id='reset'>
+                    
+                </span>
+</form>
+
+<form class='col-sm-12 col-lg-6 center' action="{% url 'articles' %}"  method="post">
+    {% csrf_token %}
+     <input type="text" name="search" id="search" placeholder='search by name'> 
+    <input id='search-button' class="btn btn-outline-info" type="submit" value="search">
+    <input class="btn btn-outline-info" type="reset" value="Reset" id='reset'>
+</form>
+
+            
+        </div>
+    </div>
+    </div>  
+</div>
+{% endblock %}
+{% block content %}
+<br>
+<h4  class="d-flex justify-content-center">Our Blogs Deserve Your Time</h4>
+<hr>
+<div class="container-xxl" >
+
+    {% if noresult %}
+    <p>There is no Title like that !</p>
+    {% else %}
+    {% endif %}
+{% for contact in page_obj %}
+{# Each "contact" is a Contact model object. #}
+<div class="companies col" >
+        <div class="row">
+        {% comment %} <div class="col"><h1 ><a class='companydetail' href="{% url 'companydetail' Company.slug %}">{{ Company.companyName }} </a></h1></div> {% endcomment %}
+        <div class="col-sm-12 col-lg-8 order-2"><h3 ><a class='articledetail' href="{{ contact.get_absolute_url }}">{{ contact.title }} </a></h3>
+        <p>{{ contact.author }} / {{ contact.category }}</p>
+        <p>{{ contact.updated }}</p>
+        <div class='test109'><p id='articlecontent'>{{ contact.blog }} </p> <span><a id='read-artical' href="{{ contact.get_absolute_url }}"> Read Article</a></span></div>
+        </div> 
+        <div class="col-sm-12 col-lg-4 order-1  to-grey"> <a href="{{ contact.get_absolute_url }}"><img class='articleImg' src="{{contact.thumbnail.url}}" alt=""  /></a></div>
+        <br>
+        <span class='span_sep col-10'></span>
+        </div>
+    <br> 
+
+    
+    </div>
+{% endfor %}
+
+<ul class="pagination" >
+
+    {% if page_obj.has_previous %}
+        <li><a href="?page={{ page_obj.previous_page_number }}"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
+    {% else %}
+        <li class="disabled"><span><i class="fa fa-chevron-left" aria-hidden="true"></i></span></li>
+    {% endif %}
+    
+    {% if page_obj.number|add:'-4' > 1 %}
+        <li><a href="?page={{ page_obj.number|add:'-5' }}">&hellip;</a></li>
+    {% endif %}
+    
+    {% for i in page_obj.paginator.page_range %}
+        {% if page_obj.number == i %}
+            <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+        {% elif i > page_obj.number|add:'-5' and i < page_obj.number|add:'5' %}
+            <li><a href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+    {% endfor %}
+    
+    {% if page_obj.paginator.num_pages > page_obj.number|add:'4' %}
+        <li><a href="?page={{ page_obj.number|add:'5' }}">&hellip;</a></li>
+    {% endif %}
+    
+    {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+    {% else %}
+        <li class="disabled"><span><i class="fa fa-chevron-right" aria-hidden="true"></i></span></li>
+    {% endif %}
+    
+    </ul>
+    <br>
+</div>
+
+<br>
+
+
+<br>
+
+
+
+{% endblock content %}
+

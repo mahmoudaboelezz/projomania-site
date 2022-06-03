@@ -1,0 +1,35 @@
+{% extends 'projomania_pages/projomania_base.html' %}
+{% load static %}
+{% block page_title %}
+    Logout
+{% endblock %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<div style="margin-top:150px;"></div>
+<div class="container already-loged">
+<div class="row center">
+<form action="." method="post">
+{% csrf_token %}
+<h3><p>Are you sure you want to logout?</p></h3>
+<button type='submit' class="btn btn-danger">Logout <i class="fas fa-sign-out-alt"></i></button>
+<a class="btn btn-success" href="{% url 'homepage' %}">back <i class="fas fa-arrow-circle-left"></i></a>
+</form>
+</div>
+
+
+</div>
+<div style="margin-top:150px;"></div>
+
+
+{% comment %} <p>you sure you want to logout</p>
+<button type='submit'>Logout</button> {% endcomment %}
+
+
+{% else %}
+
+<p>You already login You want to logout ? <a href="/logout/">logout</a></p>
+
+{% endif %}
+
+{% endblock content %}

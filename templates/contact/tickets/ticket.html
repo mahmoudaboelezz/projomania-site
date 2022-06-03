@@ -1,0 +1,74 @@
+{% extends 'projomania_pages/projomania_base.html' %}
+{% load static %}
+{% block page_title %}
+    Contact Us
+{% endblock %}
+{% block content %}
+<script src="https://unpkg.com/htmx.org@1.6.0" integrity="sha384-G4dtlRlMBrk5fEiRXDsLjriPo8Qk5ZeHVVxS8KhX6D7I9XXJlNqbdvRlp9/glk5D" crossorigin="anonymous"></script>
+
+{% if not created %}
+
+</form>
+{% comment %} <div  class="tochange"><div class="otp"><form action="" hx-post="{% url 'mylist' %}" hx-target=".otp" hx-swap="innerHTML"  hx-indicator="#indicator"> {% endcomment %}
+
+{% csrf_token %}
+<div class="col-sm-5"></div>
+<div class="col"><button class="btn btn-primary" style="color:white;min-width: 120px; min-height:60px; ">Show my tickets</button>
+</div></div>
+<div class="container" style="min-height: 600px;">
+<br>
+<h2 id='ticketh2'>If you face any problem you can send a ticket to our support.</h2>
+<br>
+<img src="media/default.png" alt="">
+
+
+
+
+<form action="" method="POST" enctype="multipart/form-data">
+{% csrf_token %}    
+{{ context.form.issueTitle.label_tag }}
+{{ context.form.issueTitle }}
+{{ context.form.issueContent.label_tag }}
+{{ context.form.issueContent }}
+
+<hr>
+{{ context.form.snapShot.label_tag }}
+{{ context.form.snapShot }}
+{{ context.form.snapShot.label }}
+
+<hr>
+{{ context.form.status }} 
+
+<textarea name="db" id="" cols="30" rows="10" placeholder="db name"></textarea>
+<select name="dbRelated" id="id_dbRelated">
+<option value="0" selected="">None</option>
+{% for x in context.db %}
+  <option value="{{ x.id }}" >{{ x }}</option>
+{% endfor %}
+</select>
+
+{% comment %} {{ context.db }} {% endcomment %}
+
+{% comment %} {{ context.form }} {% endcomment %}
+{% comment %} <label for="id_snapShot">SnapShot:</label></th><td><input type="file" name="snapShot" accept="image/*" id="id_snapShot"> {% endcomment %}
+{{ tryest}}
+<button type="submit"  class="btn btn-success" style="color:white;min-width: 120px; min-height:60px; ">submit</button>
+</form>
+
+</div>
+</div>
+
+{% else %}
+<div class="container" style="min-height:600px;">
+<h2 > Your Ticket named by "{{ object }}" is sent you can check the status of it <a href='/cotnact/{{ object.id }}/'>"{{ object }}"</a> </h2>
+
+<h4>Ticket ID : {{ object.id }}</h4>
+<img src="/media/{{ object.snapShot }}" alt="">
+<a href="{% url 'contactus' %}">Contact Page</a>
+</div>
+
+
+
+{% endif %}
+
+{% endblock content %}

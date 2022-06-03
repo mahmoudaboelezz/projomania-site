@@ -1,0 +1,39 @@
+{% extends 'projomania_pages/projomania_base.html' %}
+{% load static %}
+{% block page_title %}
+    Contact Us
+{% endblock %}
+{% block content %}
+
+<div style="margin:20px;">
+ <h3 style="border-bottom:1px solid; text-shadow: 5px 5px 47px; display: inline-flex;"> <a  id='back' href=".." ><i class="fas fa-arrow-alt-circle-left"></i>Refernce/</a>{{company.companyName}} </h3>
+</div>
+<div class="container"><div class="center container">
+    <div class="row">
+    <h1 class='col-8 companydetail' style='width: 500px;'>{{company.companyName}}</h1>  
+    <img class='col companyimg '  src="{{company.companyLogo.url}}" alt="" style="height: 150;  max-width: 250px;" />
+    </div>
+    </div>
+    <div class='compantcontent'>
+    <h6>Adress : {{ company.companyAdress }}</h6>
+    <br>
+    <h6>Email : <a href="mailto: {{ company.comapyEmail  }}"   target="_blank">{{ company.comapyEmail  }}</a></h6> 
+    <br>
+    
+    <h6>URL : <a href="{{ company.companyUrl }}"   target="_blank">{{ company.companyUrl }}</a></h6> 
+    <div class="container">
+    <br>
+    <div class="row">
+    <h6 class="col-3">Country : {{ company.comapnyCountry }}</h6>
+    <h6 class="col-6">Category : {{ company.category }} </h6>
+    
+    </div>
+    
+    
+    </div>
+    
+        
+    </div></div>
+
+
+{% endblock content %}

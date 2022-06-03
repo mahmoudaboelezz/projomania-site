@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="ProjoMania site"/>
+    <title>ProjoMania | {% block page_title %}
+    {% endblock %}</title>
+    <link type="image/x-icon" rel="shortcut icon" href="http://www.projomania.com/web/image/website/1/favicon?unique=dcf74c0"/>
+{% block moreheader %}{% endblock moreheader %}
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Custom Theme files -->
+    {% block style %}
+    <link href="{% static 'css/shared.css' %}" rel='stylesheet' type='text/css'/>
+    <link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css'/>
+    {% endblock style %}
+    
+
+    <link href="{% static 'css/normalize.css' %}" rel='stylesheet' type='text/css'/>
+    <!-- fontawesome.css-->
+    <link href="{% static 'css/all.min.css' %}" rel='stylesheet' type='text/css'/>
+    <link href="{% static 'css/navbar.css' %}" rel='stylesheet' type='text/css'/>
+
+    <link rel="stylesheet" href="{% static 'parts/contact.css' %}" />
+    <link rel="stylesheet" href="{% static 'parts/navbar.css' %}" type='text/css'/>
+                    <link type="image/x-icon" rel="shortcut icon" href="/web/image/website/1/favicon?unique=dcf74c0"/>
+
+            <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""/>
+        
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="{% static 'js/html5shiv.js' %}"></script>
+        <script src="{% static 'js/respond.min.js' %}"></script>
+    <![endif]-->
+
+</head>
+<body>
+{% block navbar %}
+    <!-- /////////////////////////////////////////Navigation -->
+    {% include 'parts\navbar.html' %}
+    {% comment %} <div class="sperator" style="border-bottom: solid 2px;"></div> {% endcomment %}
+{% endblock %}
+{% block header %}
+
+{% endblock %}
+{% block backtop %}
+    <a id='backTop'>Back To Top</a>
+    <!-- /Back To Top -->
+{% endblock %}
+
+       
+        <div class="mainsec" id='mainsec'>
+            {% block content %}
+
+            {% endblock content %}
+        </div>
+
+
+    {% block footer %}
+
+    {% include 'parts\footer.html' %}
+     <!-- Footer -->
+ {% endblock %}
+
+
+{% block core_js %}
+
+    <!-- Core JavaScript Files -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.backTop.min.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            $('#backTop').backTop({
+                'position': 1200,
+                'speed': 500,
+                'color': 'green',
+            });
+        });
+    </script>
+
+{% endblock %}
+
+    <script src="{% static 'js/main1.js' %}" type="text/javascript" >var moreService = "{{ Services.my_field }}"</script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+      </script>
+</body>
+</html>

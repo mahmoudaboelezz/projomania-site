@@ -1,0 +1,378 @@
+{% extends 'projomania_pages/projomania_base.html' %}
+{% load static %}
+{% block page_title %}
+    Home
+{% endblock %}
+{% block header %} <header>
+        <!-- Carousel -->
+         <!-- Start Header -->
+    
+    <!-- End Header -->
+    <!-- Start Landing -->
+    <div class="landing">
+      {% comment %} <div class="tryme" style='margin-top:200px'></div> {% endcomment %}
+
+      <div class="container">
+        <div class="text">
+          <h1 id="welcome">Welcome, To ProjoMania</h1>
+          <p>Technology Solutions</p>
+        </div>
+        <div class="image">
+          <img src="{% static 'images/ProjoMania.gif' %}" alt="" />
+        </div>
+      </div>
+      <a href="#firstOne" class="go-down" id='swipe'>
+        <i class="fas fa-angle-double-down fa-2x"></i>
+      </a>
+    </div>
+
+    <div class="spikes"></div>
+
+
+
+    <!-- Start Pricing -->
+
+    
+
+    </header>{% endblock header %}
+
+{% block content %}
+<div class="container Parent">
+</div>
+    <div id="page-content" class="index-page">
+        <div class="container firstOne "id="firstOne" data-aos="fade-down" data-aos-easing="linear"
+        data-aos-duration="1500"> 
+        <div class="row row-cols-1 row-cols-md-4 g-1">
+            <div class="col">
+              <div class="card cards">
+                <img
+                  src="{% static 'images/development.png' %}"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body dev  box">
+                  <h5 class="card-title ">Development</h5>
+                  <p class="card-text">Build customized apps for your business.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card cards">
+                <img
+                  src="{% static 'images/supp.png' %}"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body supp">
+                  <h5 class="card-title">Support</h5>
+                  <p class="card-text">Supporting the running businesses.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card cards">
+                <img
+                  src="{% static 'images/conslut.png' %}"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body cons">
+                  <h5 class="card-title">Consultation</h5>
+                  <p class="card-text">Enable your business with experts.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card cards">
+                <img
+                  src="{% static 'images/consltaion.png' %}"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body train">
+                  <h5 class="card-title">Training</h5>
+                  <p class="card-text">Get your team ready with best practices.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
+            <h1 class="s_title_default">
+              <font style="font-size: 62px; border-bottom:solid 2px;">Special Services</font>
+            </h1>
+            <br>
+          </div>
+       </div>
+        <!-- ////////////Content Box 01 -->
+        <section class="box-content box-1 text-center" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-5 bg-3" data-aos="fade-down-right"
+                    data-aos-offset="400"
+                    data-aos-easing="ease-in-sine">
+                        <div class="box-text">
+                            <div class="heading">
+                                <h2>Odoo Development</h2>
+                            </div>
+                            <p class="row p1" style="height: 210px;">We have a well-trained, well-organized and experienced team with Open Object Framework who can make your dreams real.<br/>
+                            Writing a clean code is our mission</p>
+                            <a class="btn btn-1" href="{% url 'odoo_module_development' %}">Learn More</a>
+                        </div>
+                    </div>
+                    <span class="col-sm-1"></span>
+                    
+                    <div class="col-sm-5 bg-1" data-aos="fade-down-left"
+                    data-aos-offset="500"
+                    data-aos-easing="ease-in-sine">
+                        <div class="box-text">
+                            <div class="heading">
+                                <h2>Code Upgrading</h2>
+                            </div>
+                            <p style="height: 210px;" class='p1'>Upgrading existing apps from old version to a new version requires and experienced team who can understand the differences not only in code syntax, but also in business logics to avoid conflicts.<br/>
+                            We know how to upgrade the code effectively and ensure that it doesn't conflict in the new version.</p>
+                            <a class="btn btn-1" href="{% url 'odoo_code_upgrading' %}">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                <div class="col-sm-5 bg-2" data-aos="fade-up-right"
+                data-aos-offset="400"
+                data-aos-easing="ease-in-sine">
+                    <div class="box-text">
+                        <div class="heading">
+                            <h2>Database Migration</h2>
+                        </div>
+                        <p style="height: 140px;"class='p2'>Database Migration is a complicated process that we made simple by automating analysis, mapping, moving data and testing.<br/>
+                        </p>
+                        <a class="btn btn-1" href="{% url 'odoo_database_migration' %}">Learn More</a>
+                    </div>
+                </div>
+                 <span class="col-sm-1"></span>
+                <div class="col-sm-5 bg-3" data-aos="fade-up-left"
+                data-aos-offset="500"
+                data-aos-easing="ease-in-sine">
+                    <div class="box-text">
+                        <div class="heading" >
+                            <h2>Linux administration</h2>
+                        </div>
+                        <p style="height: 140px;" class='p2'>Nam libero tempore, cum soluta nobis est eligendi optio cumque quod maxime placeat facere
+                            possimus nihil impedit quo minus id quod maxime placeat facere possimus ptio cumque quod
+                            maxime ibero tempore, cum soluta nobis.</p>
+                        <a class="btn btn-1" href="{% url 'linux_administration' %}">Learn More</a>
+                    </div>
+                </div></div>
+            </div>
+            <div class="clear"></div>
+            
+            <br>
+            
+        </section>
+        <!-- colapse -->
+        <br>
+      
+        <div class="container about" data-aos="zoom-in-up" data-aos-duration="1000"> 
+        
+        <div id="aboutus">
+        <h1 class="s_title_default center">
+              <font style="font-size: 62px; border-bottom:solid 2px;">About Us</font>
+            </h1>
+        <br>
+        </div>
+        <section class="colapse">
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button
+                      class="accordion-button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
+                      How do we work?
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseOne"
+                    class="accordion-collapse collapse show"
+                    aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample"
+                  >
+                  
+                  <h3 class="text-muted">Get Perfect with Professionals</h3>
+                    <div class="accordion-body card-group">
+            <div class="mt32 mb16 padding-l-r-32 col-lg-4" data-aos="fade-up"  data-aos-delay="450" data-aos-duration="1000">
+                          <img src="{% static 'images/a/business analysis.jpe' %}" class="img-fluid rounded-circle d-block mx-auto">
+                          <h4 class="mt32 text-center">Analysis</h4>
+                          <p class="mt16 text-justify">The most important phase for any implementation is to have a deep understanding of your business, suggest solutions and work on validating these solutions before starting with the implementation, customization and deployment.</p>
+                        </div>
+                        <div class="mt32 mb16 padding-l-r-32 col-lg-4" data-aos="fade-up"  data-aos-delay="750" data-aos-duration="1000">
+                          <img src="{% static 'images/a/sticky note.jpe' %}" class="img-fluid rounded-circle d-block mx-auto">
+                          <h4 class="mt32 text-center">Planning</h4>
+                          <p class="mt16 text-justify">A good plan will guarantee the efficiency of execution and delivery on time with high quality.</p>
+                          <p class="mt16 text-justify">In Planning we aim to define priorities based on business needs and the technical prospective.</p>
+                        </div>
+                        <div class="mt32 mb16 padding-l-r-32 col-lg-4" data-aos="fade-up"  data-aos-delay="950" data-aos-duration="1000">
+                          <img src="{% static 'images/a/coding.jpe' %}" class="img-fluid rounded-circle d-block mx-auto"  data-original-title="" title="" aria-describedby="tooltip236297">
+                          <h4 class="mt32 text-center">Move to action</h4>
+                          <p class="mt16 text-justify">Set milestones, Breaking down tasks, Define roles for stack holders are ready to take place to get discussions, plans and solutions ready for real-world deployment.</p>
+                          <p class="mt16 text-justify">&nbsp;</p>
+                        </div>
+                    
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingTwo">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="collapseTwo"
+                    >
+                      ProjoMania Team
+            
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseTwo"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingTwo"
+                    data-bs-parent="#accordionExample"
+                  >
+                          <h3 class="text-muted" style='font-size:16px;'>We are a team of believers and doers who can get dreams real. We all believe that we can change the world and make it a better place, that's why we decided to use our experience to help business owners to run their business smooth as possible.</h3>
+                    <div class="accordion-body card-group col">
+            <div class="row d-flex align-items-stretch s_col_no_bgcolor">
+                        <div class="pt16 pb16 ">
+                          <div class="card team bg-white text-center ">
+                            <div class="card-body team">
+                              <img class="team" src="{% static 'images/a/magdy.jpg' %}"  alt="" data-original-title="" title="" aria-describedby="tooltip764624">
+                              <h2 class="card-title">Mohamed Magdi</h2>
+                              <h6 class="text-primary">- Co-Founder -</h6>
+                              <p class="card-text">An active Odoo Developer who added a great value to Database Migration tool</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class=" pt16 pb16">
+                          <div class="card team bg-white text-center ">
+                            <div class="card-body team">
+                              &nbsp;<img class="team" src="{% static 'images/a/salah.jpg' %}"  alt="" data-original-title="" title="" aria-describedby="tooltip133639"><small class="card-title">&nbsp;
+            </small>
+                              <h2 class="card-title">Mohamed Salah</h2>
+                              <h6 class="text-primary">- Co-Founder -</h6>
+                              <p class="card-text">A smart Odoo Functional Consultant who is really knows how to do magic<br>with business solutions</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="pt16  pb0">
+                          <div class="card team bg-white text-center">
+                            <div class="card-body team">
+                              <img class="team" src="{% static 'images/a/alaa.jpeg' %}"  alt="" data-original-title="" title="" aria-describedby="tooltip857115">
+                              <h2 class="card-title">Alaa Salama</h2>
+                              <h6 class="text-primary">- Founder -</h6>
+                              <p class="card-text">An ambitious team member who can inspire team with new ideas</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="pt16  pb0">
+                          <div class="card team bg-white text-center">
+                            <div class="card-body team">
+                              <img class="team" src="{% static 'images/a/aboelezz.jpeg' %}"  alt="" data-original-title="" title="" aria-describedby="tooltip857115">
+                              <h2 class="card-title">Mahmoud Sobhy</h2>
+                              <h6 class="text-primary">- ??????? -</h6>
+                              <p class="card-text">No Position yet but we hope to get one soon :D</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                        </div>
+                  </div>
+                </div>
+                
+                {% comment %} <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingThree">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseThree"
+                      aria-expanded="false"
+                      aria-controls="collapseThree"
+                    >
+                      Accordion Item #3
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseThree"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingThree"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div class="accordion-body">
+                      <strong>This is the third item's accordion body.</strong> It is hidden
+                      by default, until the collapse plugin adds the appropriate classes
+                      that we use to style each element. These classes control the overall
+                      appearance, as well as the showing and hiding via CSS transitions. You
+                      can modify any of this with custom CSS or overriding our default
+                      variables. It's also worth noting that just about any HTML can go
+                      within the <code>.accordion-body</code>, though the transition does
+                      limit overflow.
+                    </div>
+                  </div>
+                </div> {% endcomment %}
+                
+              </div>
+        </section></div>
+        
+        <br>
+        <!-- ////////////Content Box 02 -->
+
+        <!-- ////////////Content Box 05 -->
+        {% comment %} <section class="box-content box-5">
+            <div class="no-gutter">
+                <div class="col-sm-6 bg-3">
+                    <div class="box-text">
+                        <div class="heading">
+                            <h2>Sign Up</h2>
+                            <span>Get subscriber only insights & news <br>delivered by John Doe</span>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+                            et justo duo dolores...</p>
+                        <form name="form1" method="post" action="">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control input-lg" name="email" id="email"
+                                               placeholder="Enter Your Email" required="required"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <button type="submit" class="btn btn-letter" name="btnSubcribe" id="btnSubcribe">
+                                        Submit
+                                    </button>
+                                    <br>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            
+            </div>
+            <div class="clear"></div>
+        </section> {% endcomment %}
+
+    </div>
+
+</script>
+{% endblock %}
+
+
+
+
+

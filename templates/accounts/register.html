@@ -1,0 +1,95 @@
+{% extends 'projomania_pages/projomania_base.html' %}
+<style>
+.header{
+        display: none;
+}
+</style>
+{% load static %}
+{% block page_title %}
+    Log in
+{% endblock %}
+
+{% block content %}
+{% if not request.user.is_authenticated %}
+
+<div class="container center register-form ">
+<h4>Feel free to join us.</h4>
+<div class="row">
+<form action="." method="post">
+{% csrf_token %}
+{% comment %} username {% endcomment %}
+<div class="input">
+<input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete=false  id="id_password1"required placeholder=" ">
+<label for="username">
+<span>Username</span>
+</label>
+
+</div>
+{% comment %} email {% endcomment %}
+<div class="input">
+
+<input type="email" name="email" id="id_email" required placeholder=" " autocomplete="false">
+<label for="emailadress">
+<span class="content-name">Email</span>
+</div> 
+{% comment %} password {% endcomment %}
+<div class="input">
+<input type="password" name="password1" autocomplete="false" required id="id_password1" placeholder=" ">
+<label for="password">
+<span>Password</span>
+</div>
+{% comment %} Confirm password {% endcomment %}
+<div class="input">
+<input type="password" name="password2" autocomplete="false" required id="id_password2" required placeholder=" ">
+<label for="passwordconfirm">
+<span>Confirm password</span>
+
+
+  
+</div>
+{% if  msg %}
+<div>
+<h6 style="color:red;">{{ msg }}</h6>
+</div>
+
+{% endif %}
+
+
+<button class="btn btn-primary" id="logsubmit" type="submit">Register</button>
+ 
+</form>
+<hr>
+<a href="/login"><i class="fas fa-user"></i> Already have account?</a> <br>
+
+
+</div>
+</div>
+{% comment %} <form action="." method="POST">
+
+{% csrf_token %}{{ form.as_p }}
+<button class="btn btn-primary" id="logsubmit" type="submit">Login</button></form> {% endcomment %}
+
+{% else %}
+<div style="margin-top:150px;"></div>
+<div class="container already-loged">
+<div class="row center">
+<a href="/user/" id="user-icon"><p ><i class="fas fa-user"></i></p></a>
+
+</div>
+<div class="row logged-out">
+<h3><p>You already login You want to logout ?</p></h3>
+<a class="btn btn-success" href="/logout/">logout <i class="fas fa-sign-out-alt"></i></a>
+</div>
+<div class="row">
+
+</div>
+
+</div>
+<div style="margin-top:150px;"></div>
+
+
+
+
+{% endif %}
+<br>
+{% endblock content %}

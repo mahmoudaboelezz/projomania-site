@@ -1,0 +1,56 @@
+{% extends 'projomania_pages/projomania_base.html' %}
+{% load static %}
+
+{% block page_title %}
+Our References
+{% endblock %}
+{% block content %}
+<h1 class="d-flex justify-content-center">Our References</h1>
+<h4 style="opacity: 70%;" class="d-flex justify-content-center">Trusted by partners worldwide</h4>
+
+<div style="height: 10px;"></div>
+<div class="container" style='border-top:1px solid'>
+
+
+
+<div class="row">
+<div class="col" >
+<form method="GET" id='seachbyselect'>{{ filters.form }}
+
+
+{% comment %} <option value="none">ALL</option>
+<option value="comapnyCountry">Database Migration</option>
+<option value="Odoo Development">Odoo Development</option> {% endcomment %}
+</select>
+{% comment %} <select id="id_category" name="category">
+<option value="none">ALL</option>
+<option value="Database Migration">Database Migration</option>
+<option value="Odoo Development">Odoo Development</option>
+</select> {% endcomment %}
+<br>
+{% comment %} <input class="btn btn-outline-info" type="submit" value="Filter"> {% endcomment %}
+<input class="btn btn-outline-info" type="reset" value="Reset" id='reset'>
+{% comment %} <a  href="{% url 'references' %}">Reset</a> {% endcomment %}
+</form></div>
+<div class="companies col-10" >
+{% for Company in Companies %}
+    <div class="row">
+    {% comment %} <div class="col"><h1 ><a class='companydetail' href="{% url 'companydetail' Company.slug %}">{{ Company.companyName }} </a></h1></div> {% endcomment %}
+    <div class="col-8"><h1 ><a class='companydetail' href="{{ Company.get_absolute_url}}">{{ Company.companyName }} </a></h1></div> 
+    <div class="col to-grey"><img src="{{Company.companyLogo.url}}" alt="" style="height: 100;     max-width: 200px;" /></div>
+    <br>
+    <span class='span_sep col-10'></span>
+    </div>
+<br>
+{% endfor %}
+
+</div>
+</div>
+
+</div>
+<br>
+
+
+
+{% endblock content %}
+

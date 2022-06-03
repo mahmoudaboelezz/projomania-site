@@ -1,0 +1,150 @@
+{% load static %}
+
+{% comment %} <nav class="navbar navbar-default navbar-static-top text-center" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="{% static 'images/logo.png' %}" class="hidden-xs" alt="">
+                    <h3 class="visible-xs"><span style="color: #2aaae6">P</span><span style="color:#333333;">rojo</span><span
+                                    style="color: #2aaae6">M</span><span style="color: #333333;">ania</span></h3>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav nav-pills">
+                    <li>
+                        <a class="page-scroll" href="{% url 'homepage' %}">Home</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Services
+                            </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'odoo_database_migration' %}" class="page-scroll pull-left">Odoo Database Migration</a></li>
+                            <li><a href="{% url 'odoo_code_upgrading' %}" class="page-scroll pull-left">Odoo Code Upgrading</a></li>
+                            <li><a href="{% url 'odoo_module_development' %}" class="page-scroll pull-left">Odoo Modules Development</a></li>
+                            <li><a href="{% url 'linux_administration' %}" class="page-scroll pull-left">Linux Administration</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Online Services
+                            </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'odoo_apis' %}" class="page-scroll pull-left">Build Odoo APIs</a></li>
+                            <li><a href="{% url 'install_odoo' %}" class="page-scroll pull-left">Install Odoo Instances</a></li>
+                            <li><a href="{% url 'debug_odoo' %}" class="page-scroll pull-left">Debug Odoo Instances</a></li>
+                        </ul>
+                    </li>
+                     <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Our Partners
+                            </a>
+                        <ul class="dropdown-menu">
+                        <li><a class="page-scroll pull-left" href="{% url 'ourpartners' %}">Business Partners</a></li>
+                        <li><a class="page-scroll pull-left" href="{% url 'references' %}">Our References</a></li>
+                        </ul>
+                     </li>
+                   <li>
+                        <a class="page-scroll" href="{% url 'homepage' %}#aboutus">About Us</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{% url 'contactus' %}">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav> {% endcomment %}
+
+   <div class="header" id="header">
+      <div class="container ">
+        <a href="{% url 'homepage' %}" class="logo"><img src="{% static 'images/logo.png' %}" class="logoimage" alt="" /></a>
+        <ul class="main-nav center">
+          <li><a href="{% url 'references' %}">Partners</a></li>
+          <li><a href="{% url 'homepage' %}#aboutus">About Us</a></li>
+          <li><a href="{% url 'contactus' %}">Contact Us</a></li>
+          <li>
+            <a href="#" class='dropdown-toggle fa-toggle-off'>Services</a>
+            <!-- Start Megamenu -->
+            <div class="mega-menu">
+              <div class="image">
+                <img src="{% static 'images/a/services.jpg' %}" alt="" />
+              </div>
+              <ul class="links">
+                <li>
+                  <a href="{% url 'odoo_database_migration' %}"><i class="far fa-building fa-fw"></i> Odoo Database Migration</a>
+                </li>
+                <li>
+                  <a href="{% url 'odoo_module_development' %}"><i class="far fa-check-circle fa-fw"></i> Odoo Modules Development</a>
+                </li>
+                <li>
+                  <a href="{% url 'odoo_code_upgrading' %}"><i class="far fa-clipboard fa-fw"></i> Odoo Code Upgrading</a>
+                </li>
+                    <li>
+                  <a href="{% url 'linux_administration' %}"><i class="far fa-clipboard fa-fw"></i> Linux Administration</a>
+                </li>
+              </ul>
+              <ul class="links">
+                <li>
+                  <a href="{% url 'odoo_apis' %}"><i class="far fa-calendar-alt fa-fw"></i> Build Odoo APIs</a>
+                </li>
+                <li>
+                  <a href="{% url 'install_odoo' %}"><i class="fas fa-server fa-fw"></i> Install Odoo Instances</a>
+                </li>
+                <li>
+                  <a href="{% url 'debug_odoo' %}"><i class="far fa-play-circle fa-fw"></i> Debug Odoo Instances</a>
+                </li>
+                <li>
+                  <a href="{% url 'articles' %}"><i class="far fa-chart-bar fa-fw"></i> Blog</a>
+                  
+                </li>
+              </ul>
+            </div>
+            
+            <!-- End Megamenu -->
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-user-circle" style="font-size: 30px;"></i></a>
+            <!-- Start Megamenu -->
+            <div class="mega-menu">
+              <div class="image">
+                
+                <i class="fas fa-user-circle center" style="font-size: 180px; color:#2aaae6;"></i>
+                <h2>{{user.username}}</h2>
+              </div>
+              <ul class="links">
+
+                {% if request.user.is_authenticated %}
+                  <li><a href="{% url 'profile' user.id %}"><i class="fas fa-user-plus"></i> My Profile</a></li>
+                 <li>
+                  <a href="/logout"><i class="fas fa-user-plus"></i></i> logout</a>
+                </li>
+                <li>
+                  <a href="{% url 'ticketlist' %}"><i class="fas fa-ticket-alt"></i> My Tickets</a>
+                </li>
+                {% else %}
+                <li>
+                  <a href="/login"><i class="fas fa-user"></i> login</a>
+                </li>
+                {% endif %}
+             
+              </ul>
+              {% if not request.user.is_authenticated %}
+            <ul class="links">
+            
+            <li>
+                  <a href="/register"><i class="fas fa-user-plus"></i></i> register</a>
+                </li></ul>
+                {% endif %}
+            </div>
+            
+            <!-- End Megamenu -->
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- End Header -->

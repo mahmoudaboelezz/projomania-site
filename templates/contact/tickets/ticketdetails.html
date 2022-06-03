@@ -1,0 +1,147 @@
+{% extends 'projomania_pages/projomania_base.html' %}
+{% load static %}
+{% block page_title %}
+{{ticket.issueTitle}}
+{% endblock %}
+{% block content %}
+
+{% if request.user ==  ticket.user %}
+
+<div class="container">
+<div class="row">
+<a href="{% url 'ticketlist' %}" class="btn btn-success">My-Tickets</a>
+
+</div>
+<div class="row">
+<div class="col-sm-10">
+    <div class="alert alert-info" role="alert">
+        <h3 id='issueTitle'>Ticket :{{ticket.issueTitle}}</h3>
+
+    </div>
+</div>
+
+<div class="col-sm">
+    <a class='btn btn-info' href="{{ticket.get_update_url}}">Edit Status</a></div>
+
+</div>
+<div class="row">
+<div id="invoice" class='center to-print'>
+    
+        <h3 class='mt-  '> Issue : {{ ticket.issueContent}}</h3>
+        <br>
+        <h4 class='mt-2'>First release : {{ ticket.timestamp}}</h4>
+        
+        
+        <h4 class='pt-5'><img src="{{ ticket.snapShot.url}}" alt="{{ ticket.snapShot}}"></h4>
+        {% comment %} {% if solution %}
+        
+        
+        {% else %}
+        {% endif %} {% endcomment %}
+        {% for item1 in ticket.get_auto_replys %}
+        <br>
+        <p class='mt-4' data-html2canvas-ignore>solve of the problem  <span>
+                <span id='solution'>{{ item1.aiReply }}</span>
+                <p>solution is :{{ item1.aiReply.solution }}</p>
+
+            </span>
+            
+            
+            <a href="{{ item1.aiReply.link }}" target='_blank'>link to solve</a></p>
+            <hr>
+        {% endfor %}
+        {% if ticket.update %}
+        <h4>last Updated : {{ ticket.update}}</h4>
+        {% endif %}
+        <hr>
+        <h3> Status of the ticket <span style="color:red;">{{ ticket.status}}</span></h3>
+        
+        
+        
+        
+        
+        </div>
+        
+        
+
+</div>
+<div class="center"><button class='btn btn-success' onclick="generatePDF1()">Download as PDF</button></div>
+</div>
+<div class="container">
+<br>
+{% for item in ticket.get_replys %}
+{% if item.author.id == 1 %}
+<h3 style='color:red;'>{{ item.author }}</h3>
+<h3>{{ item.reply }}</h3>
+<hr>
+{% else %}
+<h3 style='color:black;'>{{ item.author }}</h3>
+<h3>{{ item.reply }}</h3>
+<hr>
+{% endif %}
+
+{% if reply %}
+<form action="" method='POST'>
+{% csrf_token %}
+
+
+<h5>reply to {{ item.reply }}</h5>
+<div >{{ reply.reply}}</div>
+
+<button type="submit">Submit</button>
+</form>
+
+{% else %}
+
+<form action="" method='POST'>
+{% csrf_token %}
+
+<div >{{ reply }}</div>
+
+<button type="submit">Submit</button>
+</form>
+{% endif %}
+{% endfor %}
+
+
+</div>
+
+<hr>
+
+
+
+
+{% elif request.user.id == 1 %}
+<h1> Hello Admin</h1>
+<h1 > Ticket name : {{ticket.issueTitle}}</h1>  
+<h2> Auther : {{ ticket.user}}</h3>
+<h3> Status of the ticket <span style="color:red;">{{ ticket.status}}</span></h3>
+<h3> Issue : {{ ticket.issueContent}}</h3>
+<h4>First release : {{ ticket.timestamp}}</h4>
+<h4>last Updated : {{ ticket.update}}</h4>
+<h4>shit : {{ ticket.ticket.author}}</h4>
+{% else %}
+<h2>you dont have permision to see this !</h2>
+{% endif %}
+
+
+
+<script>
+    function genPDF() {
+	
+	var doc = new jsPDF();
+	
+	doc.text(20,20,"{{ticket.issueTitle}}");
+    doc.text(20,30,"{{ ticket.user}}");
+    doc.text(20,30,"{{ ticket.user}}");
+	doc.addPage();
+	doc.text(20,20,'TEST Page 2!');
+	doc.save("{{ticket.issueTitle}}");
+	
+}
+
+</script>
+
+
+
+{% endblock content %}
